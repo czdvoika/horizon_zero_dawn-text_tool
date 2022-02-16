@@ -4,8 +4,10 @@ textak = f.read()
 
 
 i = 1
-
+o = 0
 while i < 10:
+ 
+ print(o)
  
  pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8")
  print(pozice1)
@@ -22,8 +24,9 @@ while i < 10:
  print(finish)
  s.write(finish)
  
+ 
+ o += 1 
  i += 1
-
 
 
 
