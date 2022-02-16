@@ -23,7 +23,8 @@ while i < 100:
   s.write(finish)
   s.write("\n")
   
-  off += offset
+  off = offset
+  print(off)
   i += 1
  
 
