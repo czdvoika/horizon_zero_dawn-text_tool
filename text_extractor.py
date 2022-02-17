@@ -5,7 +5,6 @@ off = 0
 textak = f.read()
 
 while i < 100: 
-  
   pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8", off)
   offset = f.seek(pozice1+28) 
   size = f.read(1)
