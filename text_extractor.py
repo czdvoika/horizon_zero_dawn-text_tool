@@ -1,5 +1,5 @@
 s = open("save.txt", "w")
-f = open("sentences.core","rb",)
+f = open("mourek.core","rb",)
 i = 1
 off = 0
 textak = f.read()
@@ -18,9 +18,10 @@ while i < 100:
   print(usize)
  
   text = (f.read(usize))
-  finish = text.decode('ascii')
-  print(finish)
-  s.write(finish)
+  finish = text.decode('utf-8')
+  enko = finish.replace("\n","\\n")
+  print(enko)
+  s.write(enko)
   s.write("\n")
   
   off = offset
