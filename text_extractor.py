@@ -18,3 +18,6 @@ while i < 100:
   s.write("\n")
   off = offset
   i += 1
+  
+s.close()
+f.close()  
