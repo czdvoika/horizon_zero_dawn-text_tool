@@ -12,9 +12,10 @@ usize = ord(size)
 print(usize)
 nic = core.read(1)
 radek = txt.readline()
+
+
+a = len(radek)
+print(a)
+
 print(radek)
 core.write(radek)
-
-
-core.close()
-txt.close()
