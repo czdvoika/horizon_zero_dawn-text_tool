@@ -1,5 +1,5 @@
-core = open("more.core", "r+b")
-txt =  open("save.txt", "rb")
+core = open("mourek.core", "r+b")
+txt =  open("save.txt", "r")
 
 
 bin = core.read()
@@ -11,11 +11,19 @@ size = core.read(1)
 usize = ord(size)
 print(usize)
 nic = core.read(1)
+
 radek = txt.readline()
+radek = radek.replace("\n","")
+finish = radek.encode('utf-8')
 
 
-a = len(radek)
-print(a)
+# a = len(radek)
+# print(a)
 
-print(radek)
-core.write(radek)
+
+print(finish)
+core.write(finish)
+
+
+core.close()
+txt.close()
