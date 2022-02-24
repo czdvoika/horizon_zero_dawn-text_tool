@@ -6,13 +6,27 @@ with open('save.txt', encoding='utf8') as text:
  print(nsize)
  hexsize = hex(nsize)
  print(hexsize)
- hotovo = hexsize.replace("0x","\\x")
- print(hotovo)
+ hexdec = hexsize.replace("0x","")
+ print(hexdec)
+ bytedec = bytearray.fromhex(hexdec)
+ print(bytedec)
  
 
-with open('save.core', 'w') as save:
+with open('save.core', 'r+b') as save:
+ core = save.read()
+ pozice1 = core.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8")
+ print(pozice1)
+ offset = save.seek(pozice1+28)
+ print(offset)
+ save.write(bytedec)
+
  
- save.write(hotovo)
+ 
+ 
+
+
+ 
+ 
 
 # [2:]
 # core = open("simpletext_pc.core", "rb")
@@ -43,5 +57,4 @@ with open('save.core', 'w') as save:
 # print(pozice1)
 # offset = core.seek(pozice1+28)
 # print(offset)
-
 
