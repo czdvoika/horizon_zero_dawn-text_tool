@@ -19,15 +19,11 @@ with open('save.core', 'r+b') as save:
  offset = save.seek(pozice1+28)
  print(offset)
  save.write(bytedec)
-
+ text = save.seek(offset+2)
+ print(text)
+ text = line.encode("utf8")
+ save.write(text)
  
- 
- 
-
-
- 
- 
-
 # [2:]
 # core = open("simpletext_pc.core", "rb")
 # txt =  open("save.txt", "r", "utf-8")
