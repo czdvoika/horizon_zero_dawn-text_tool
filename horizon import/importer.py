@@ -1,7 +1,6 @@
 s = open("save.txt", "r")
 f = open("save.core", "r+b")
 
-
 line = s.readline()
 print(line)
 print("start",f.tell())
@@ -17,6 +16,3 @@ f.write(enusize)
 encodeline = line.encode("utf-8")
 f.write(encodeline)
 print("end",f.tell())
-
-
-
