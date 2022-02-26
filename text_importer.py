@@ -20,7 +20,7 @@ while i < 823:
  print("end",f.tell())
  f.write(b'\x02')
 
- sizeoff = (end - start - 2)
+ sizeoff = (end - start - 3)
  print(sizeoff)
 
  usize = hex(sizeoff)
