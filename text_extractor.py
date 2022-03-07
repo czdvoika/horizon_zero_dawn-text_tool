@@ -1,5 +1,5 @@
 import sys
-s = open("save.txt", "w", encoding = "utf-8")
+s = open(sys.argv[2], "w", encoding = "utf-8")
 f = open(sys.argv[1],"rb",)
 i = 1
 off = 0
