@@ -1,10 +1,11 @@
-s = open("save_sp.txt", "w", encoding = "utf-8")
-f = open("menu_shared_pc.core","rb",)
+import sys
+s = open("save.txt", "w", encoding = "utf-8")
+f = open(sys.argv[1],"rb",)
 i = 1
 off = 0
 textak = f.read()
 
-while i < 248: 
+while i < 999: 
  pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8", off)
  offset = f.seek(pozice1+28) 
  size = f.read(2)
