@@ -1,5 +1,6 @@
 # horizon-text-tool
 horizon zero dawn *.core text extractor/importer
+
 python.exe sentences/simpletext.core (save save.txt)
 
 text importer under construction, sometimes offsets problem...
