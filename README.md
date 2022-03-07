@@ -2,6 +2,7 @@
 horizon zero dawn *.core text extractor/importer
 
 python text_extractor simpletext.core simpletext.txt
+
 python text_importer simpletext.txt simpletext.core
 
 text importer under construction, sometimes offsets problem...
