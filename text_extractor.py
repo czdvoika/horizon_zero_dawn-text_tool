@@ -1,11 +1,12 @@
 import sys
 s = open(sys.argv[2], "w", encoding = "utf-8")
 f = open(sys.argv[1],"rb",)
-i = 1
+i = 0
 off = 0
 textak = f.read()
+kolik = textak.count(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8")
 
-while i < 999: 
+while i < kolik: 
  pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8", off)
  offset = f.seek(pozice1+28) 
  size = f.read(2)
