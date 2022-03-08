@@ -1,11 +1,12 @@
-s = open("save_trans.txt", "r", encoding = "utf-8" )
-f = open("simpletext_pc.core", "r+b")
+import sys
+s = open(sys.argv[1], "r", encoding = "utf-8" )
+f = open(sys.argv[2], "r+b")
 i = 1
 k = 1
 off = 0
 textak = f.read()
 
-while k < 822:
+while k < 821:
  pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8",off)
  offset = f.seek(pozice1+28)
  text = s.readline()
@@ -32,7 +33,7 @@ while k < 822:
  f.seek(offoffset)
  print(f.tell())
 
- f.write(b" "*blok)
+ f.write(b"\x00"*blok)
  f.seek(offoffset)
  f.write(encodetext[:-1])
  endtext = f.tell()
@@ -46,8 +47,11 @@ while k < 822:
  f.seek(offset)
  f.write(enusize)
  f.seek(endtext)
- f.write(b"\x02\x00\x20\x20"*17)
- f.write(b"\x00\x00\x02\x00\x20\x20")
+ f.write(b"\x00\x00"*19)
+ 
+ 
+ # f.write(b"\x02\x00\x20\x20"*17)
+ # f.write(b"\x00\x00\x02\x00\x20\x20")
 
  konecnull = f.tell()
  print(konecnull)
@@ -67,3 +71,4 @@ while k < 822:
 
 s.close()
 f.close()
+# 18
