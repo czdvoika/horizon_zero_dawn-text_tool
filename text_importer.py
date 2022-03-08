@@ -2,11 +2,12 @@ import sys
 s = open(sys.argv[1], "r", encoding = "utf-8" )
 f = open(sys.argv[2], "r+b")
 i = 1
-k = 1
+k = 0
 off = 0
 textak = f.read()
+kolik = textak.count(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8")
 
-while k < 821:
+while k < kolik:
  pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8",off)
  offset = f.seek(pozice1+28)
  text = s.readline()
@@ -49,8 +50,7 @@ while k < 821:
  f.seek(endtext)
  f.write(b"\x00\x00"*19)
  
- 
- # f.write(b"\x02\x00\x20\x20"*17)
+  # f.write(b"\x02\x00\x20\x20"*17)
  # f.write(b"\x00\x00\x02\x00\x20\x20")
 
  konecnull = f.tell()
@@ -72,3 +72,13 @@ while k < 821:
 s.close()
 f.close()
 # 18
+
+
+
+
+
+
+
+
+
+
