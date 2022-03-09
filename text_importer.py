@@ -16,21 +16,22 @@ while k < kolik:
 
  while i <22:
   lang1 = f.read(2)
-  print(lang1)
+  # print(lang1)
   lang1 = int.from_bytes(lang1,byteorder="little")
-  print(lang1)
+  # print(lang1)
   start1 = f.tell()
-  print(start1)
+  # print(start1)
   end1 = f.seek(start1+lang1)
-  print(end1)
+  # print(end1)
   i += 1
 
+ print("---------------------")
  offoffset = offset+2
  print(offoffset)
  print(end1)
 
  blok = (end1 - offoffset)
- print(blok)
+ print("blok: ",blok)
  f.seek(offoffset)
  print(f.tell())
 
@@ -41,16 +42,17 @@ while k < kolik:
  print(endtext)
 
  sizetext = (endtext - offoffset)
+ print("sizetext: ",sizetext)
  hex(sizetext)
  enusize = sizetext.to_bytes(2, 'little')
- print(sizetext)
- print(enusize)
+ print("textsize: ",sizetext)
+ print("enusize: ",enusize)
  f.seek(offset)
  f.write(enusize)
  f.seek(endtext)
  f.write(b"\x00\x00"*19)
  
- # f.write(b"\x02\x00\x20\x20"*17)
+  # f.write(b"\x02\x00\x20\x20"*17)
  # f.write(b"\x00\x00\x02\x00\x20\x20")
 
  konecnull = f.tell()
@@ -71,6 +73,24 @@ while k < kolik:
 
 s.close()
 f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
