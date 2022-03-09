@@ -10,7 +10,7 @@ kolik = textak.count(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8")
 while k < kolik:
  pozice1 = textak.find(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8",off)
  offset = f.seek(pozice1+28)
- text = s.readline()
+ text = s.readline().replace("\\n",chr(10))
  encodetext = text.encode("utf-8")
  i = 1
 
@@ -50,7 +50,7 @@ while k < kolik:
  f.seek(endtext)
  f.write(b"\x00\x00"*19)
  
-  # f.write(b"\x02\x00\x20\x20"*17)
+ # f.write(b"\x02\x00\x20\x20"*17)
  # f.write(b"\x00\x00\x02\x00\x20\x20")
 
  konecnull = f.tell()
@@ -71,7 +71,15 @@ while k < kolik:
 
 s.close()
 f.close()
-# 18
+
+
+
+
+
+
+
+
+
 
 
 
