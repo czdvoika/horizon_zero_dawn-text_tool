@@ -35,46 +35,49 @@ while k < kolik:
  f.seek(offoffset)
  print(f.tell())
 
- f.write(b"\x00"*blok)
- f.seek(offoffset)
- f.write(encodetext[:-1])
- endtext = f.tell()
- print(endtext)
-
- sizetext = (endtext - offoffset)
- print("sizetext: ",sizetext)
- hex(sizetext)
- enusize = sizetext.to_bytes(2, 'little')
- print("textsize: ",sizetext)
- print("enusize: ",enusize)
- f.seek(offset)
- f.write(enusize)
- f.seek(endtext)
- f.write(b"\x00\x00"*19)
+ if blok < 31000:
  
-  # f.write(b"\x02\x00\x20\x20"*17)
- # f.write(b"\x00\x00\x02\x00\x20\x20")
-
- konecnull = f.tell()
- print(konecnull)
-
-
- koneclang = (end1 - konecnull - 2)
- print(koneclang)
-
- hex(koneclang)
- konecek = koneclang.to_bytes(2, 'little')
- print(konecek)
- f.write(konecek)
- off = offset
- k += 1
- i == 1
-
+  f.write(b"\x00"*blok)
+  f.seek(offoffset)
+  f.write(encodetext[:-1])
+  endtext = f.tell()
+  print(endtext)
+ 
+  sizetext = (endtext - offoffset)
+  print("sizetext: ",sizetext)
+  hex(sizetext)
+  enusize = sizetext.to_bytes(2, 'little')
+  print("textsize: ",sizetext)
+  print("enusize: ",enusize)
+  f.seek(offset)
+  f.write(enusize)
+  f.seek(endtext)
+  f.write(b"\x00\x00"*19)
+  
+ 
+  konecnull = f.tell()
+  print(konecnull)
+ 
+ 
+  koneclang = (end1 - konecnull - 2)
+  print(koneclang)
+ 
+  hex(koneclang)
+  konecek = koneclang.to_bytes(2, 'little')
+  print(konecek)
+  f.write(konecek)
+  off = offset
+  k += 1
+  i == 1
+  
+ else: 
+  print("kokokokokokokokokokokokokokokokot")
+  off = offset
+  k += 1
+  i == 1
 
 s.close()
 f.close()
-
-
 
 
 
