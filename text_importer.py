@@ -72,12 +72,66 @@ while k < kolik:
   
  else: 
   print("kokokokokokokokokokokokokokokokot")
+  f.write(b"\x00"*blok)
+  f.seek(offoffset)
+  f.write(encodetext[:-1])
+  endtext = f.tell()
+  print(endtext)
+ 
+  sizetext = (endtext - offoffset)
+  print("sizetext: ",sizetext)
+  hex(sizetext)
+  enusize = sizetext.to_bytes(2, 'little')
+  print("textsize: ",sizetext)
+  print("enusize: ",enusize)
+  f.seek(offset)
+  f.write(enusize)
+  f.seek(endtext)
+  blok_deleno = round(blok/18)
+  print("deleno 18:  ",blok_deleno)
+  
+  
+  hex(blok_deleno)
+  konecek2 = blok_deleno.to_bytes(2, 'little')
+  print("konecek2:",konecek2)
+  f.write(konecek2)
+  
+ 
+  konecnull = f.tell()
+  print(konecnull)
+ 
+ 
+  koneclang = (end1 - konecnull - 2)
+  print(koneclang)
+ 
+  # hex(koneclang)
+  # konecek = koneclang.to_bytes(2, 'little')
+  # print(konecek)
+  # f.write(konecek)
   off = offset
   k += 1
   i == 1
 
 s.close()
 f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
