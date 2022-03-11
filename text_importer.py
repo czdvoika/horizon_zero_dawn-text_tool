@@ -4,6 +4,7 @@ f = open(sys.argv[2], "r+b")
 i = 1
 k = 0
 off = 0
+m = 1
 textak = f.read()
 kolik = textak.count(b"\xE2\xB2\x0B\x42\x6B\x59\x9A\xB8")
 
@@ -70,7 +71,7 @@ while k < kolik:
   k += 1
   i == 1
   
- else: 
+ elif blok: 
   print("kokokokokokokokokokokokokokokokot")
   f.write(b"\x00"*blok)
   f.seek(offoffset)
@@ -91,12 +92,21 @@ while k < kolik:
   print("deleno 18:  ",blok_deleno)
   
   
-  hex(blok_deleno)
-  konecek2 = blok_deleno.to_bytes(2, 'little')
-  print("konecek2:",konecek2)
-  f.write(konecek2)
+  m = 0
   
+  while m < 16:
+   print("kdejsem",f.tell())
+   offdeleno = f.tell()
+   hex(blok_deleno)
+   konecek2 = blok_deleno.to_bytes(2, 'little')
+   print("konecek2:",konecek2)
+   f.write(konecek2)
+   f.seek(offdeleno+blok_deleno+2)
+   m += 1
  
+  
+  
+  
   konecnull = f.tell()
   print(konecnull)
  
@@ -104,16 +114,33 @@ while k < kolik:
   koneclang = (end1 - konecnull - 2)
   print(koneclang)
  
-  # hex(koneclang)
-  # konecek = koneclang.to_bytes(2, 'little')
-  # print(konecek)
-  # f.write(konecek)
   off = offset
   k += 1
   i == 1
+  m == 1
+
 
 s.close()
 f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
