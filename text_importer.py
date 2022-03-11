@@ -28,14 +28,14 @@ while k < kolik:
 
  print("---------------------")
  offoffset = offset+2
- print(offoffset)
+ print("offoffset: ",offoffset)
  print(end1)
 
  blok = (end1 - offoffset)
  print("blok: ",blok)
  f.seek(offoffset)
  print(f.tell())
-
+ 
  if blok < 31000:
  
   f.write(b"\x00"*blok)
@@ -55,10 +55,8 @@ while k < kolik:
   f.seek(endtext)
   f.write(b"\x00\x00"*19)
   
- 
   konecnull = f.tell()
   print(konecnull)
- 
  
   koneclang = (end1 - konecnull - 2)
   print(koneclang)
@@ -78,9 +76,13 @@ while k < kolik:
   f.write(encodetext[:-1])
   endtext = f.tell()
   print(endtext)
- 
+  
   sizetext = (endtext - offoffset)
   print("sizetext: ",sizetext)
+  
+  bloknull = (blok - sizetext)
+  print("bloknull",bloknull)
+  
   hex(sizetext)
   enusize = sizetext.to_bytes(2, 'little')
   print("textsize: ",sizetext)
@@ -88,9 +90,8 @@ while k < kolik:
   f.seek(offset)
   f.write(enusize)
   f.seek(endtext)
-  blok_deleno = round(blok/18)
+  blok_deleno = round(bloknull/19)
   print("deleno 18:  ",blok_deleno)
-  
   
   m = 0
   
@@ -104,12 +105,8 @@ while k < kolik:
    f.seek(offdeleno+blok_deleno+2)
    m += 1
  
-  
-  
-  
   konecnull = f.tell()
   print(konecnull)
- 
  
   koneclang = (end1 - konecnull - 2)
   print(koneclang)
@@ -122,6 +119,25 @@ while k < kolik:
 
 s.close()
 f.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
