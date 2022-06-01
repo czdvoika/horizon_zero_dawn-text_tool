@@ -19,3 +19,6 @@ while i <22:
  f.write(translated_text)
  f.write("\n")
  i += 1
+
+s.close()
+f.close()
