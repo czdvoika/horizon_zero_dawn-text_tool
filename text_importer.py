@@ -29,7 +29,7 @@ while k < kolik:
  print("---------------------")
  offoffset = offset+2
  print("offoffset: ",offoffset)
- print(end1)
+ print("konecjazyka: ",end1)
 
  blok = (end1 - offoffset)
  print("blok: ",blok)
@@ -95,7 +95,7 @@ while k < kolik:
   
   m = 0
   
-  while m < 16:
+  while m < 17:
    print("kdejsem",f.tell())
    offdeleno = f.tell()
    hex(blok_deleno)
@@ -110,7 +110,36 @@ while k < kolik:
  
   koneclang = (end1 - konecnull - 2)
   print(koneclang)
- 
+  
+  f.write(b"\x00\x00")
+  f.write(konecek2)
+  offdeleno2 = f.tell()
+  f.seek(offdeleno2+blok_deleno)
+  # f.write(konecek2)
+  
+  offdeleno3 = f.tell()
+    
+  print("offdeleno3:",offdeleno3)
+  print("koneclang:",koneclang)
+  print("offoffset:",offoffset)
+  print("konecek:",konecek)
+  
+  # f.seek(offdeleno3+blok_deleno)
+  # offdeleno4 = f.tell()
+  
+  zbytek = (end1 - offdeleno3 - 2)
+  print("zbytek:",zbytek)
+  
+  
+  hex(zbytek)
+  zbytek_hex = zbytek.to_bytes(2, 'little')
+  print("zbytek_hex:",zbytek_hex)
+  f.write(zbytek_hex)
+  
+   
+  
+  
+  
   off = offset
   k += 1
   i == 1
@@ -119,94 +148,3 @@ while k < kolik:
 
 s.close()
 f.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
