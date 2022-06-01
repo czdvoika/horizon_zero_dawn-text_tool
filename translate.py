@@ -1,7 +1,7 @@
 import sys
 s = open(sys.argv[1], "r", encoding = "utf-8" )
 f = open(sys.argv[2], "w")
-i = 1
+i = 0
 
 
 while i <22:
