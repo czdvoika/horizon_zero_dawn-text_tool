@@ -3,8 +3,11 @@ s = open(sys.argv[1], "r", encoding = "utf-8" )
 f = open(sys.argv[2], "w")
 i = 0
 
+x = len(s.readlines())
+print("počet řádků",x)
+s.seek(0)
 
-while i <22:
+while i <x:
  textak = s.readline()
 
  from deep_translator import GoogleTranslator
